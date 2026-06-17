@@ -137,7 +137,7 @@ public class ResultadosApi {
      * 
      * @param nombreUsuario  (optional)
      * @param tok  (optional)
-     * @return ResultsResponse
+     * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -146,8 +146,8 @@ public class ResultadosApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ResultsResponse resultadosPost(String nombreUsuario, Integer tok) throws ApiException {
-        ApiResponse<ResultsResponse> localVarResp = resultadosPostWithHttpInfo(nombreUsuario, tok);
+    public Object resultadosPost(String nombreUsuario, Integer tok) throws ApiException {
+        ApiResponse<Object> localVarResp = resultadosPostWithHttpInfo(nombreUsuario, tok);
         return localVarResp.getData();
     }
 
@@ -156,7 +156,7 @@ public class ResultadosApi {
      * 
      * @param nombreUsuario  (optional)
      * @param tok  (optional)
-     * @return ApiResponse&lt;ResultsResponse&gt;
+     * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -165,9 +165,9 @@ public class ResultadosApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ResultsResponse> resultadosPostWithHttpInfo(String nombreUsuario, Integer tok) throws ApiException {
+    public ApiResponse<Object> resultadosPostWithHttpInfo(String nombreUsuario, Integer tok) throws ApiException {
         okhttp3.Call localVarCall = resultadosPostValidateBeforeCall(nombreUsuario, tok, null);
-        Type localVarReturnType = new TypeToken<ResultsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -186,10 +186,10 @@ public class ResultadosApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call resultadosPostAsync(String nombreUsuario, Integer tok, final ApiCallback<ResultsResponse> _callback) throws ApiException {
+    public okhttp3.Call resultadosPostAsync(String nombreUsuario, Integer tok, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = resultadosPostValidateBeforeCall(nombreUsuario, tok, _callback);
-        Type localVarReturnType = new TypeToken<ResultsResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

@@ -147,8 +147,8 @@ public class SolicitudApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public List<Integer> solicitudComprobarSolicitudGet(String nombreUsuario, Integer tok) throws ApiException {
-        ApiResponse<List<Integer>> localVarResp = solicitudComprobarSolicitudGetWithHttpInfo(nombreUsuario, tok);
+    public Object solicitudComprobarSolicitudGet(String nombreUsuario, Integer tok) throws ApiException {
+        ApiResponse<Object> localVarResp = solicitudComprobarSolicitudGetWithHttpInfo(nombreUsuario, tok);
         return localVarResp.getData();
     }
 
@@ -166,9 +166,9 @@ public class SolicitudApi {
         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Integer>> solicitudComprobarSolicitudGetWithHttpInfo(String nombreUsuario, Integer tok) throws ApiException {
+    public ApiResponse<Object> solicitudComprobarSolicitudGetWithHttpInfo(String nombreUsuario, Integer tok) throws ApiException {
         okhttp3.Call localVarCall = solicitudComprobarSolicitudGetValidateBeforeCall(nombreUsuario, tok, null);
-        Type localVarReturnType = new TypeToken<List<Integer>>(){}.getType();
+        java.lang.reflect.Type localVarReturnType = new com.google.gson.reflect.TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
