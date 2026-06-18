@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  # Imagen recien descargada con el servicio
+  backend:
+    image: javillour/servicio-tt1:amd64
+    networks:
+      - red-simulador
+
+  # Contenedor Spring Boot 
+  frontend:
+    image: mi-simulador-web
+    ports:
+      - "8081:8081" 
+      # Este sí lo exponemos para poder entrar desde nuestro navegador
+    environment:
+      # Docker se encarga de traducirlo a la IP interna correcta
+      - BACKEND_URL=http://backend:8080 
+    networks:
+      - red-simulador
+    depends_on:
+      - backend
+
+# Definimos la red privada para que hablen entre ellos sin salir a Windows
+networks:
+  red-simulador:
+    driver: bridge

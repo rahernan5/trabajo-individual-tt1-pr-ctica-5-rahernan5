@@ -39,7 +39,11 @@ public class SimuladorService implements InterfazContactoSim {
         try {
             // Configuramos el cliente base generado por OpenAPI
             ApiClient defaultClient = Configuration.getDefaultApiClient();
-            defaultClient.setBasePath("http://localhost:8080");
+            String urlBackend = System.getenv("BACKEND_URL");
+            if (urlBackend == null || urlBackend.isEmpty()) {
+                urlBackend = "http://localhost:8080"; 
+            }
+            defaultClient.setBasePath(urlBackend);
 
             // Instanciamos la API
             ResultadosApi resultadosApi = new ResultadosApi(defaultClient);
@@ -129,7 +133,11 @@ public class SimuladorService implements InterfazContactoSim {
     public int solicitarSimulation(DatosSolicitud sol) {
         try {
             ApiClient defaultClient = Configuration.getDefaultApiClient();
-            defaultClient.setBasePath("http://localhost:8080");
+            String urlBackend = System.getenv("BACKEND_URL");
+            if (urlBackend == null || urlBackend.isEmpty()) {
+                urlBackend = "http://localhost:8080"; 
+            }
+            defaultClient.setBasePath(urlBackend);
             SolicitudApi api = new SolicitudApi(defaultClient);
 
             // Preparamos el cuerpo de la petición con las entidades elegidas en el formulario
